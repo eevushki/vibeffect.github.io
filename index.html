@@ -40,7 +40,7 @@ canvas#out{max-width:100%;max-height:calc(100vh - 100px);border-radius:10px;box-
 </style></head><body>
 <div class="app">
 <aside>
-<div><h1>vibeffect<b>.</b></h1><p class="sub">Трендовые эффекты для картинок и камеры</p></div>
+<div><h1>vibeffect<b>.</b></h1><p class="sub">Вайбовые эффекты для фото и видео</p></div>
 <div class="sec">Источник</div>
 <div class="btns"><button class="pri" id="up">Загрузить фото / видео</button><button id="cam">Включить камеру</button></div>
 <input type="file" id="file" accept="image/*,video/*" hidden>
@@ -90,7 +90,7 @@ const mk=mkc(),m2=mk.getContext('2d',{willReadFrequently:true});
 const mm=mkc(),mmx=mm.getContext('2d');
 const tA=mkc(),tB=mkc(),vid=$('#vid');
 let src,fx='ascii',dirty=1,live=false,prev=null,mask=null,W=0,H=0;
-const RAMPS={classic:' .:-=+*#%@',blocks:' ░▒▓█',binary:' 01',dots:' ·•●'};
+const RAMPS={classic:' .:-=+*#%@',blocks:' ░▒▓█',binary:' 01',dots:' ·•●',detailed: ' .\'`^",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$',minimal: ' .-+*#',braille: ' ⠁⠂⠄⠂⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿⣿', brailleSimple: ' ⠄⠆⠖⠶⠷⠿⣿',squares: ' ▫◽◻◼■',circles: ' ◦○◎◉●',shades: ' ·∘○◌◍◎●',bars: '  ▂▃▄▅▆▇█',barsHorizontal: ' ▏▎▍▌▋▊▉█',lines: ' -/\\|+X#', stars: ' ·✦✧★✶✹✸', matrix: ' ｡･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ',cards: ' ♢♡♤♧♦♥♠♣', math: ' ·−+±×÷=≠≈≡∑∏∫∞',arrows: ' ·→↗↑↖←↙↓↘↔↕⇄⇅',crosses: ' ·+×✕✖✚✛✜✝✞✟✠',triangles: ' ▵△▴▲',hex: ' 0123456789ABCDEF'};
 const DEF={ascii:['#d8ff3e','#101014'],half:['#15141a','#f3efe6'],dith:['#0a0a0a','#f1f1ec'],riso:['#ff4fa3','#f4efe3'],glit:['#ffffff','#000000'],vhs:['#ffffff','#000000'],heat:['#ffe600','#1a0033','#ff2d6f'],neon:['#00f0ff','#07040f'],sort:['#ffffff','#000000'],wave:['#ffffff','#0b0b0e'],kale:['#ffffff','#0b0b0e'],glass:['#ffffff','#0b0b0e'],frac:['#ffffff','#0b0b0e'],cmyk:['#000000','#fffdf6'],line:['#111111','#f6f2e8'],mosa:['#ffffff','#0b0b0e'],crys:['#ffffff','#0b0b0e'],vitr:['#14110f','#0b0b0e'],dots:['#ffffff','#f7f1e3'],stamp:['#14110f','#f4efe3'],zoom:['#ffffff','#0b0b0e']};
 const LBL={ascii:'Размер символа',half:'Размер точки',dith:'Размер пикселя',riso:'Зерно печати',glit:'Сила сдвига',vhs:'Сила помех',heat:'Постеризация',neon:'Свечение',sort:'Длина прогона',wave:'Амплитуда',kale:'Сегменты',glass:'Размытие стекла',frac:'Ширина рёбер',cmyk:'Размер точки',line:'Шаг линий',mosa:'Размер плитки',crys:'Размер кристалла',vitr:'Размер ячейки (цвет линий — краска)',dots:'Размер точек',stamp:'Не используется',zoom:'Сила зума'};
 const v=id=>$('#'+id).value,c=id=>$('#'+id).checked;
